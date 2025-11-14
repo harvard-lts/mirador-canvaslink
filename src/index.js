@@ -11,6 +11,7 @@ import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog.jsx";
 import ShareControl from "./components/ShareControl.jsx";
 import translations from "./locales";
 import { getPluginConfig } from "./state/selectors";
+import harvardCanvasLink from "./plugins/harvardCanvasLink.js";
 
 export default [
   {
@@ -48,5 +49,16 @@ export default [
     }),
     mode: "add",
     target: "Window",
+  },
+  {
+    ...harvardCanvasLink,
+    config: {
+      translations,
+    },
+    mapStateToProps: (state, { windowId }) => ({
+      config: getPluginConfig(state, { windowId }),
+      manifestId: getWindowManifests(state, { windowId })[0],
+      visibleCanvases: getVisibleCanvases(state, { windowId }),
+    }),
   },
 ];

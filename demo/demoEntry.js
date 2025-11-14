@@ -2,37 +2,30 @@ import Mirador from "mirador/dist/es/src/index";
 
 import canvasLinkPlugin from "../src";
 
+// Get manifestId from miradorOptions or fall back to default
+const currentManifestId = window.miradorOptions?.manifestId || "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00034024/manifest";
+
 const config = {
   catalog: [
     {
       manifestId:
-        "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00135902/manifest",
-      provider: "Bavarian State Library",
-    },
-    {
-      manifestId:
-        "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10532463_00005_u001/manifest",
-      provider: "Bavarian State Library",
-    },
-    {
-      manifestId:
-        "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00034024/manifest",
-      provider: "Bavarian State Library",
+        "https://nrs-dev.lib.harvard.edu/URN-3:FHCL:101130025:MANIFEST:3",
     },
   ],
   id: "mirador",
   window: {
     allowFullscreen: true,
     canvasLink: {
-      active: true,
-      enabled: true,
+      active: currentManifestId.includes('lib.harvard.edu'),
+      enabled: currentManifestId.includes('lib.harvard.edu'),
       singleCanvasOnly: false,
-      getCanvasLink: (manifestId, canvases) => {
-        const objectId = manifestId.split("/").slice(-2)[0];
-        const canvasIndices = canvases.map(
-          (canvas) => canvas.id.split("/").slice(-1)[0],
+      getCanvasLink: (manifestId, visibleCanvases) => {
+        const currentHost = window.location.origin;
+        const URN = manifestId.match(/URN-\d+:[^:]+:[^:]+/);
+        const canvasIndices = visibleCanvases.map(
+          (canvas) => canvas.id.split("/").slice(-1)[0].replace(/^canvas-drs:/, ""),
         );
-        return `https://digitale-sammlungen.de/view/${objectId}?page=${canvasIndices.join(
+        return `${currentHost}/viewer/${URN}?page=${canvasIndices.join(
           ",",
         )}`;
       },
@@ -40,10 +33,10 @@ const config = {
   },
   windows: [
     {
-      canvasIndex: 8,
-      manifestId:
-        "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00034024/manifest",
+      canvasIndex: parseInt(new URLSearchParams(window.location.search).get('n'))-1,
+      manifestId: currentManifestId,
       view: "single",
+      canvasId: new URLSearchParams(window.location.search).get('page') ? `${manifestId}/canvas/canvas-drs:${new URLSearchParams(window.location.search).get('page').toString()}` : new URLSearchParams(window.location.search).get('canvasId')?.toString()
     },
   ],
 };
