@@ -7,8 +7,8 @@ import {
   getWindowViewType,
 } from "mirador/dist/es/src/state/selectors";
 
-import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
-import ShareControl from "./components/ShareControl";
+import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog.jsx";
+import ShareControl from "./components/ShareControl.jsx";
 import translations from "./locales";
 import { getPluginConfig } from "./state/selectors";
 

@@ -13,9 +13,9 @@ import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollI
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import CopyToClipboard from "./dialog/CopyToClipboard";
-import RightsInformation from "./dialog/RightsInformation";
-import ShareButton from "./dialog/ShareButton";
+import CopyToClipboard from "./dialog/CopyToClipboard.jsx";
+import RightsInformation from "./dialog/RightsInformation.jsx";
+import ShareButton from "./dialog/ShareButton.jsx";
 
 const useStyles = makeStyles((theme) => ({
   actions: {

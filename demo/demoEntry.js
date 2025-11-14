@@ -1,6 +1,6 @@
 import Mirador from "mirador/dist/es/src/index";
 
-import canvasLinkPlugin from "../../src";
+import canvasLinkPlugin from "../src";
 
 const config = {
   catalog: [
@@ -20,7 +20,7 @@ const config = {
       provider: "Bavarian State Library",
     },
   ],
-  id: "demo",
+  id: "mirador",
   window: {
     allowFullscreen: true,
     canvasLink: {
