@@ -3,21 +3,15 @@ import Mirador from "mirador/dist/es/src/index";
 import canvasLinkPlugin from "../src";
 
 // Get manifestId from miradorOptions or fall back to default
-const currentManifestId = window.miradorOptions?.manifestId || "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00034024/manifest";
+const manifestId = 'https://nrs.lib.harvard.edu/URN-3:FHCL.LOEB:25853480:MANIFEST:3';
 
 const config = {
-  catalog: [
-    {
-      manifestId:
-        "https://nrs-dev.lib.harvard.edu/URN-3:FHCL:101130025:MANIFEST:3",
-    },
-  ],
   id: "mirador",
   window: {
     allowFullscreen: true,
     canvasLink: {
-      active: currentManifestId.includes('lib.harvard.edu'),
-      enabled: currentManifestId.includes('lib.harvard.edu'),
+      active: manifestId.includes('lib.harvard.edu'),
+      enabled: manifestId.includes('lib.harvard.edu'),
       singleCanvasOnly: false,
       getCanvasLink: (manifestId, visibleCanvases) => {
         const currentHost = window.location.origin;
@@ -34,9 +28,12 @@ const config = {
   windows: [
     {
       canvasIndex: parseInt(new URLSearchParams(window.location.search).get('n'))-1,
-      manifestId: currentManifestId,
+      manifestId: manifestId,
       view: "single",
-      canvasId: new URLSearchParams(window.location.search).get('page') ? `${manifestId}/canvas/canvas-drs:${new URLSearchParams(window.location.search).get('page').toString()}` : new URLSearchParams(window.location.search).get('canvasId')?.toString()
+      sideBarOpen: true,
+      xsideBarPanel: 'info',
+      canvasId: new URLSearchParams(window.location.search).get('page') ? `${manifestId}/canvas/canvas-drs:${new URLSearchParams(window.location.search).get('page').toString()}` : new URLSearchParams(window.location.search).get('canvasId')?.toString(),
+   
     },
   ],
 };
