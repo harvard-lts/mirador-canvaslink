@@ -12,6 +12,7 @@ const config = {
     canvasLink: {
       active: manifestId.includes('lib.harvard.edu'),
       enabled: manifestId.includes('lib.harvard.edu'),
+      infoPanelEnabled: manifestId.includes('lib.harvard.edu'),
       singleCanvasOnly: false,
       getCanvasLink: (manifestId, visibleCanvases) => {
         const currentHost = window.location.origin;

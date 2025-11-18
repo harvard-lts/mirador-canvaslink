@@ -80,6 +80,7 @@ The available settings are:
   canvas identifiers as the second argument. Must return a string.
 - `dialogOpen`: If the share dialog is open. Boolean, defaults to `false`.
 - `enabled`: If the plugin is enabled. Boolean, defaults to `true`.
+- `infoPanelEnabled`: If the canvas links should display in the info panel. Boolean, defaults to `false`.
 - `showRightsInformation`: If rights information defined in the manifest should be shown. Boolean, defaults to `true`.
 - `singleCanvasOnly`: Set to true, if `getCanvasLink` can only generate links for a single canvas, this will
   disable the "Share" button in book view.

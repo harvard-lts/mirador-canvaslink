@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-class harvardCanvasLink extends Component {
+class InfoPanelCanvasLink extends Component {
   render() {
     const { config, manifestId, visibleCanvases } = this.props;
-    const { getCanvasLink } = config || {};
+    const { getCanvasLink, infoPanelEnabled } = config || {};
     
+    if (!infoPanelEnabled) return <></>;
+
     // Generate the canvas link if we have the necessary data
     const canvasLink = getCanvasLink && manifestId && visibleCanvases && visibleCanvases.length > 0 
       ? getCanvasLink(manifestId, visibleCanvases) 
@@ -54,5 +56,5 @@ class harvardCanvasLink extends Component {
 export default {
   target: 'ManifestRelatedLinks',
   mode: 'wrap',
-  component: harvardCanvasLink,
+  component: InfoPanelCanvasLink,
 }

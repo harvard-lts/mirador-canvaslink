@@ -11,7 +11,7 @@ import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog.jsx";
 import ShareControl from "./components/ShareControl.jsx";
 import translations from "./locales";
 import { getPluginConfig } from "./state/selectors";
-import harvardCanvasLink from "./plugins/harvardCanvasLink.js";
+import InfoPanelCanvasLink from "./components/InfoPanelCanvasLink.js";
 
 export default [
   {
@@ -51,7 +51,7 @@ export default [
     target: "Window",
   },
   {
-    ...harvardCanvasLink,
+    ...InfoPanelCanvasLink,
     config: {
       translations,
     },
