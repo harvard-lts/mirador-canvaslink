@@ -4,10 +4,13 @@ const webpack = require("webpack");
 module.exports = (env, options) => {
   return {
     mode: options.mode,
-    entry: "./demo/demoEntry.js",
+    entry: {
+      mdzDemo: "./demo/mdzDemoEntry.js",
+      harvardDemo: "./demo/harvardDemoEntry.js",
+    },
     output: {
       path: path.resolve(__dirname, "demo", "dist"),
-      filename: "demo.js",
+      filename: "[name].js",
       publicPath: "/",
     },
     resolve: {
