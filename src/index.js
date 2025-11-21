@@ -7,10 +7,11 @@ import {
   getWindowViewType,
 } from "mirador/dist/es/src/state/selectors";
 
-import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
-import ShareControl from "./components/ShareControl";
+import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog.jsx";
+import ShareControl from "./components/ShareControl.jsx";
 import translations from "./locales";
 import { getPluginConfig } from "./state/selectors";
+import InfoPanelCanvasLink from "./components/InfoPanelCanvasLink.js";
 
 export default [
   {
@@ -48,5 +49,16 @@ export default [
     }),
     mode: "add",
     target: "Window",
+  },
+  {
+    ...InfoPanelCanvasLink,
+    config: {
+      translations,
+    },
+    mapStateToProps: (state, { windowId }) => ({
+      config: getPluginConfig(state, { windowId }),
+      manifestId: getWindowManifests(state, { windowId })[0],
+      visibleCanvases: getVisibleCanvases(state, { windowId }),
+    }),
   },
 ];

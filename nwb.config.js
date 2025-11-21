@@ -1,24 +1,20 @@
+const path = require('path');
+
 module.exports = {
-  type: "react-component",
+  type: 'react-component',
   npm: {
     esModules: true,
     umd: {
-      global: "MiradorCanvasLink",
+      global: 'MiradorCanvasLink',
       externals: {
-        react: "React",
-      },
-    },
+        react: 'React'
+      }
+    }
   },
   webpack: {
-    rules: {
-      babel: {
-        test: /\.jsx?/,
-      },
-    },
-    extra: {
-      resolve: {
-        extensions: [".js", ".jsx"],
-      },
+    aliases: {
+      react: path.resolve('./', 'node_modules', 'react'),
+      'react-dom': path.resolve('./', 'node_modules', 'react-dom'),
     },
   },
-};
+}
