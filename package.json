@@ -1,5 +1,5 @@
 {
-  "name": "mirador-canvaslink",
+  "name": "@harvard-lts/mirador-canvaslink",
   "version": "1.0.0",
   "description": "Mirador 3 plugin to share image link through social media",
   "keywords": [
