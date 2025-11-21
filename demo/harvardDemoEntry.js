@@ -11,7 +11,7 @@ const config = {
     allowFullscreen: true,
     canvasLink: {
       active: manifestId.includes('lib.harvard.edu'),
-      enabled: manifestId.includes('lib.harvard.edu'),
+      enabled: false,
       infoPanelEnabled: manifestId.includes('lib.harvard.edu'),
       singleCanvasOnly: false,
       getCanvasLink: (manifestId, visibleCanvases) => {
