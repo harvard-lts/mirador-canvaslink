@@ -3,16 +3,16 @@ import Mirador from "mirador/dist/es/src/index";
 import canvasLinkPlugin from "../src";
 
 // Get manifestId from miradorOptions or fall back to default
-const manifestId = 'https://nrs.lib.harvard.edu/URN-3:FHCL.LOEB:25853480:MANIFEST:3';
+const manifestId = 'https://nrs.harvard.edu/URN-3:FHCL.LOEB:25853480:MANIFEST:3';
 
 const config = {
   id: "mirador",
   window: {
     allowFullscreen: true,
     canvasLink: {
-      active: manifestId.includes('lib.harvard.edu'),
+      active: manifestId.includes('harvard.edu'),
       enabled: false,
-      infoPanelEnabled: manifestId.includes('lib.harvard.edu'),
+      infoPanelEnabled: manifestId.includes('harvard.edu'),
       singleCanvasOnly: false,
       getCanvasLink: (manifestId, visibleCanvases) => {
         const currentHost = window.location.origin;
