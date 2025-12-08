@@ -3,7 +3,7 @@ import Mirador from "mirador/dist/es/src/index";
 import canvasLinkPlugin from "../src";
 
 // Get manifestId from miradorOptions or fall back to default
-const manifestId = 'https://nrs.harvard.edu/URN-3:FHCL.LOEB:25853480:MANIFEST:3';
+const manifestId = 'https://nrs.harvard.edu/URN-3:FHCL:106214677:MANIFEST:3';
 
 const config = {
   id: "mirador",
