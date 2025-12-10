@@ -7,6 +7,7 @@ module.exports = (env, options) => {
     entry: {
       mdzDemo: "./demo/mdzDemoEntry.js",
       harvardDemo: "./demo/harvardDemoEntry.js",
+      bothDemo: "./demo/bothDemoEntry.js",
     },
     output: {
       path: path.resolve(__dirname, "demo", "dist"),

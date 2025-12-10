@@ -15,7 +15,7 @@ class InfoPanelCanvasLink extends Component {
     return (
       <>
         <this.props.TargetComponent {...this.props.targetProps} />
-        {infoPanelEnabled && (
+        {infoPanelEnabled && canvasLink && (
           <>
             <dt className="MuiTypography-root MuiTypography-subtitle2">
               Link to this object

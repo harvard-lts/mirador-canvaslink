@@ -20,7 +20,7 @@ const config = {
         const canvasIndices = visibleCanvases.map(
           (canvas) => canvas.id.split("/").slice(-1)[0].replace(/^canvas-drs:/, ""),
         );
-        return `${currentHost}/viewer/${URN}?page=${canvasIndices.join(
+        return `https://nrs.harvard.edu/${URN}:VIEW?page=${canvasIndices.join(
           ",",
         )}`;
       },
