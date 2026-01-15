@@ -3,6 +3,7 @@ dist
 es
 node_modules
 npm-debug.log*
+coverage
 
 .idea/
 .DS_Store
