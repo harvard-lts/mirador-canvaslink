@@ -1,8 +1,10 @@
 import Link from "@mui/material/Link";
 import Alert from "@mui/material/Alert";
+import { useTranslation } from "mirador";
 import PropTypes from "prop-types";
 
-const RightsInformation = ({ rights, t }) => {
+const RightsInformation = ({ rights }) => {
+  const { t } = useTranslation();
   if (!rights.length) {
     return null;
   }
@@ -30,7 +32,6 @@ const RightsInformation = ({ rights, t }) => {
 
 RightsInformation.propTypes = {
   rights: PropTypes.arrayOf(PropTypes.string).isRequired,
-  t: PropTypes.func.isRequired,
 };
 
 export default RightsInformation;

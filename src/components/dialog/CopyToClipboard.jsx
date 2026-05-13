@@ -1,9 +1,10 @@
 import InputAdornment from "@mui/material/InputAdornment";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { MiradorMenuButton } from "mirador";
+import { MiradorMenuButton, useTranslation } from "mirador";
 import PropTypes from "prop-types";
 
-const CopyToClipboard = ({ onCopy, supported, t }) => {
+const CopyToClipboard = ({ onCopy, supported }) => {
+  const { t } = useTranslation();
   if (!supported) {
     return null;
   }
@@ -23,7 +24,6 @@ const CopyToClipboard = ({ onCopy, supported, t }) => {
 CopyToClipboard.propTypes = {
   onCopy: PropTypes.func.isRequired,
   supported: PropTypes.bool.isRequired,
-  t: PropTypes.func.isRequired,
 };
 
 export default CopyToClipboard;

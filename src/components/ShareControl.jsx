@@ -1,14 +1,14 @@
 import ShareIcon from "@mui/icons-material/Share";
-import { MiradorMenuButton } from "mirador";
+import { MiradorMenuButton, useTranslation } from "mirador";
 import PropTypes from "prop-types";
 
 const ShareControl = ({
   containerId,
   config,
-  t,
   updateConfig,
   windowViewType,
 }) => {
+  const { t } = useTranslation();
   const { dialogOpen, enabled, singleCanvasOnly } = config;
   if (
     !enabled ||
@@ -41,7 +41,6 @@ ShareControl.propTypes = {
     singleCanvasOnly: PropTypes.bool.isRequired,
   }).isRequired,
   containerId: PropTypes.string.isRequired,
-  t: PropTypes.func.isRequired,
   updateConfig: PropTypes.func.isRequired,
   windowViewType: PropTypes.string.isRequired,
 };

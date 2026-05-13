@@ -8,6 +8,7 @@ import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
+import { useTranslation } from "mirador";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
@@ -21,12 +22,12 @@ const ShareCanvasLinkDialog = ({
   config,
   containerId,
   manifestId,
-  visibleCanvases,
-  label,
-  rights,
-  t,
+  visibleCanvases = [],
+  label = "",
+  rights = [],
   updateConfig,
 }) => {
+  const { t } = useTranslation();
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
 
@@ -78,7 +79,6 @@ const ShareCanvasLinkDialog = ({
                   setTimeout(() => setCopiedToClipboard(false), 3000);
                 }}
                 supported={supportsClipboard}
-                t={t}
               />
             ),
             readOnly: true,
@@ -87,7 +87,7 @@ const ShareCanvasLinkDialog = ({
           value={canvasLink}
           variant="outlined"
         />
-        {showRightsInformation && <RightsInformation t={t} rights={rights} />}
+        {showRightsInformation && <RightsInformation rights={rights} />}
       </DialogContent>
       <DialogActions sx={{ justifyContent: "space-between", flexWrap: "wrap" }}>
         <ButtonGroup sx={{ flexWrap: "wrap" }}>
@@ -113,12 +113,6 @@ const ShareCanvasLinkDialog = ({
   );
 };
 
-ShareCanvasLinkDialog.defaultProps = {
-  label: "",
-  rights: [],
-  visibleCanvases: [],
-};
-
 ShareCanvasLinkDialog.propTypes = {
   config: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
@@ -130,7 +124,6 @@ ShareCanvasLinkDialog.propTypes = {
   label: PropTypes.string,
   manifestId: PropTypes.string.isRequired,
   rights: PropTypes.arrayOf(PropTypes.string),
-  t: PropTypes.func.isRequired,
   updateConfig: PropTypes.func.isRequired,
   visibleCanvases: PropTypes.arrayOf(
     PropTypes.shape({
