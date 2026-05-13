@@ -1,7 +1,6 @@
-import ShareIcon from "@material-ui/icons/Share";
-import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuButton";
+import ShareIcon from "@mui/icons-material/Share";
+import { MiradorMenuButton } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
 
 const ShareControl = ({
   containerId,
@@ -13,9 +12,7 @@ const ShareControl = ({
   const { dialogOpen, enabled, singleCanvasOnly } = config;
   if (
     !enabled ||
-    // Only show in single canvas view if configured
     (singleCanvasOnly && windowViewType !== "single") ||
-    // Never show in gallery view
     windowViewType === "gallery"
   ) {
     return null;
