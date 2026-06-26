@@ -1,11 +1,11 @@
 {
   "name": "@harvard-lts/mirador-canvaslink",
   "version": "1.0.7",
-  "description": "Mirador 3 plugin to share image link through social media",
+  "description": "Mirador 4 plugin to share image link through social media",
   "keywords": [
     "iiif",
     "mirador",
-    "mirador3",
+    "mirador4",
     "mirador-plugin",
     "react-component"
   ],
@@ -29,6 +29,7 @@
     "serve": "vite",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:unit": "node scripts/coverage-ci.mjs",
     "test:watch": "vitest"
   },
   "devDependencies": {
@@ -38,25 +39,32 @@
     "@babel/preset-react": "^7.18.6",
     "@rollup/plugin-babel": "^6.0.3",
     "@testing-library/jest-dom": "^6.1.5",
-    "@testing-library/react": "^12.0.0",
+    "@testing-library/react": "^16.0.0",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/coverage-v8": "^4.0.17",
     "@vitest/ui": "^4.0.17",
     "jsdom": "^27.4.0",
-    "mirador": "^3.4.3",
+    "mirador": "^4.1.0",
     "npm-run-all": "^4.1.5",
     "parcel": "^2.8.3",
     "rollup": "^3.29.5",
     "url": "^0.11.4",
-    "vite": "^7.3.1",
+    "vite": "^8.0.16",
     "vitest": "^4.0.17"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^7.0.0",
+    "@mui/material": "^7.0.0",
+    "@mui/system": "^7.0.0",
     "jquery": "^3.7.0",
     "prop-types": "^15.8.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "redux": "^4.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.0.0",
+    "redux": "^5.0.0",
+    "reselect": "^5.0.0",
     "redux-saga": "^1.2.3"
   },
   "engines": {

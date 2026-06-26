@@ -6,6 +6,16 @@ const config = {
     dir: "dist/es",
     format: "es",
   },
+  external: [
+    /^react($|\/)/,
+    /^react-dom($|\/)/,
+    "mirador",
+    /^@mui\//,
+    /^@emotion\//,
+    "prop-types",
+    "reselect",
+    "react-i18next",
+  ],
   plugins: [babel({ babelHelpers: "bundled" })],
 };
 

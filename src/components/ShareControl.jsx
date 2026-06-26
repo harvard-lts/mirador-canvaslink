@@ -1,15 +1,14 @@
-import ShareIcon from "@material-ui/icons/Share";
-import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuButton";
+import ShareIcon from "@mui/icons-material/Share";
+import { MiradorMenuButton } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ShareControl = ({
-  containerId,
   config,
-  t,
   updateConfig,
   windowViewType,
 }) => {
+  const { t } = useTranslation();
   const { dialogOpen, enabled, singleCanvasOnly } = config;
   if (
     !enabled ||
@@ -24,7 +23,6 @@ const ShareControl = ({
     <MiradorMenuButton
       aria-expanded={dialogOpen}
       aria-label={t("canvasLink.shareLink")}
-      containerId={containerId}
       onClick={() =>
         updateConfig({
           ...config,
@@ -43,8 +41,6 @@ ShareControl.propTypes = {
     enabled: PropTypes.bool.isRequired,
     singleCanvasOnly: PropTypes.bool.isRequired,
   }).isRequired,
-  containerId: PropTypes.string.isRequired,
-  t: PropTypes.func.isRequired,
   updateConfig: PropTypes.func.isRequired,
   windowViewType: PropTypes.string.isRequired,
 };
