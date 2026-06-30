@@ -1,17 +1,17 @@
-import { updateWindow } from "mirador/dist/es/src/state/actions";
 import {
+  updateWindow,
   getContainerId,
   getRights,
   getVisibleCanvases,
   getWindowManifests,
   getWindowViewType,
-} from "mirador/dist/es/src/state/selectors";
+} from "mirador";
 
 import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog.jsx";
 import ShareControl from "./components/ShareControl.jsx";
 import translations from "./locales";
 import { getPluginConfig } from "./state/selectors";
-import InfoPanelCanvasLink from "./components/InfoPanelCanvasLink.js";
+import InfoPanelCanvasLink from "./components/InfoPanelCanvasLink.jsx";
 
 export default [
   {
@@ -24,7 +24,6 @@ export default [
         dispatch(updateWindow(windowId, { canvasLink })),
     }),
     mapStateToProps: (state, { windowId }) => ({
-      containerId: getContainerId(state),
       config: getPluginConfig(state, { windowId }),
       windowViewType: getWindowViewType(state, { windowId }),
     }),
