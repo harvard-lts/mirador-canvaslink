@@ -1,3 +1,5 @@
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 
 /** Wraps the info panel's related links to optionally append canvas permalinks */
@@ -23,35 +25,45 @@ const InfoPanelCanvasLink = ({
       <TargetComponent {...targetProps} />
       {infoPanelEnabled && canvasLink && (
         <>
-          <dt className="MuiTypography-root MuiTypography-subtitle2">
+          {/*
+            Render the labels and links as real MUI components (via the
+            `component` prop to keep the semantic <dt>/<dd> markup) rather than
+            plain elements with hand-copied "MuiTypography-*"/"MuiLink-*" class
+            strings. Under MUI 5+ (Emotion) those class NAMES carry no styling on
+            their own — the styles live in runtime-generated classes — so copied
+            strings render with the browser default serif instead of the theme
+            font. Using the components makes the labels/links inherit the active
+            Mirador theme, matching the panel's other (Mirador-rendered) links.
+          */}
+          <Typography component="dt" variant="subtitle2">
             Link to this object
-          </dt>
+          </Typography>
           {objectLink && (
-            <dd className="MuiTypography-root MuiTypography-body1">
-              <a
-                className="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+            <Typography component="dd" variant="body1">
+              <Link
+                underline="always"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={objectLink}
               >
                 {objectLink}
-              </a>
-            </dd>
+              </Link>
+            </Typography>
           )}
-          <dt className="MuiTypography-root MuiTypography-subtitle2">
+          <Typography component="dt" variant="subtitle2">
             Canvas permalink
-          </dt>
+          </Typography>
           {canvasLink && (
-            <dd className="MuiTypography-root MuiTypography-body1">
-              <a
-                className="MuiTypography-root MuiLink-root MuiLink-underlineAlways MuiTypography-colorPrimary"
+            <Typography component="dd" variant="body1">
+              <Link
+                underline="always"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={canvasLink}
               >
                 {canvasLink}
-              </a>
-            </dd>
+              </Link>
+            </Typography>
           )}
         </>
       )}
